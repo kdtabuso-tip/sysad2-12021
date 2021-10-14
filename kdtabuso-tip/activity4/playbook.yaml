@@ -1,7 +1,8 @@
---- 
+playbook
+---
 - name: Installation of packages via pip
   hosts: all
-  
+
   tasks:
   - name: Installation of boto, ansible and openstack via pip
     pip:
@@ -23,9 +24,9 @@
 - name: Installation of packages for Ubuntu
   hosts: ubuntu
 
-  tasks: 
+  tasks:
     - name: Installation of Java
-      apt: 
+      apt:
         name: default-jre
         state: present
         update_cahce: yes
