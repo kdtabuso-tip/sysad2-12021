@@ -1,0 +1,56 @@
+---
+- name: Cloning Prelim on Centos
+  hosts:
+   - centos
+  vars_files:
+   - config.yaml
+  roles:
+   - centos-gitclone
+
+- name: Installation of Prometheus on Centos
+  hosts:
+   - centos
+  vars_files:
+   - config.yaml
+  roles:
+   - centos-mt
+
+- name: Installation of dhcpd on Centos
+  hosts:
+   - centos
+  vars_files:
+   - config.yaml
+  roles:
+   - centos-es
+
+- name: Clone Prelim Exam on Debian
+  hosts:
+   - debian
+  vars_files:
+   - config.yaml
+  roles:
+   - debian-gitclone
+
+- name: Installation of elk on Debian
+  hosts:
+   - debian
+  vars_files:
+   - config.yaml
+  roles:
+   - debian-es
+
+- name: Installation of dhcpd on Debian
+  hosts:
+   - debian
+  vars_files:
+   - config.yaml
+  roles:
+   - debian-mt
+
+- name: motd for Centos and Debian
+  hosts:
+   - all
+  vars_files:
+   - config.yaml
+  roles:
+   - motd
